@@ -6,8 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Data
 public class UserEntity {
 
@@ -16,4 +15,20 @@ public class UserEntity {
   private String phone;
 
   private List<Contact> contacts = new ArrayList<>();
+
+  public UserEntity() {
+  }
+
+  public UserEntity(Long userId, String name, String phone, List<Contact> contacts) {
+    this.userId = userId;
+    this.name = name;
+    this.phone = phone;
+    this.contacts = contacts;
+  }
+
+  public UserEntity(Long userId, String name, String phone) {
+    this.userId = userId;
+    this.name = name;
+    this.phone = phone;
+  }
 }

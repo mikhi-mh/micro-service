@@ -1,0 +1,6 @@
+server:
+  port: 8586
+
+spring:
+  application:
+    name: contact-service
