@@ -33,10 +33,14 @@ public class UserController {
 
   @GetMapping("/{id}")
   public UserEntity getUserById(@PathVariable Long id){
+
+    //////////  http://localhost:8586/contact/1
     UserEntity user = userService.getUser(id);
 
-    Object temp = this.restTemplate.getForObject("http://localhost:8586/contact/" + id, Object.class);
-    List<Contact> list = new ArrayList<Contact>(
+
+//    List contacts = restTemplate.getForObject("http://localhost:8586/contact/" + id,List.class);
+    List contacts = restTemplate.getForObject("http://contact-service/contact/" + id,List.class);
+   user.setContacts(contacts);
     return user;
   }
 

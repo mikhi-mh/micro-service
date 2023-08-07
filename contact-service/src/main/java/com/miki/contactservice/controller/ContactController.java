@@ -2,6 +2,7 @@ package com.miki.contactservice.controller;
 
 import com.miki.contactservice.model.Contact;
 import com.miki.contactservice.service.ContactService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class ContactController {
   ContactService contactService;
 
   @GetMapping("/{id}")
-  public Contact getContact(@PathVariable Long id){
+  public List<Contact> getContact(@PathVariable Long id){
     return contactService.getContact(id);
   }
 
